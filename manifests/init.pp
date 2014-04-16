@@ -1,6 +1,6 @@
 # class bind
 #
-class bind($server = undef) {
+class bind($server = hiera(bind::server)) {
   package { 'dnsutils':
     ensure => installed,
   }
@@ -17,5 +17,4 @@ class bind($server = undef) {
       require => Package['bind9'],
     }
   }
-
 }
